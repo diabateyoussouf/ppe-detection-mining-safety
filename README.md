@@ -5,7 +5,7 @@
 ## 📝 Introduction
 Les industries minières et les chantiers d'extraction figurent parmi les environnements de travail les plus exigeants et dangereux au monde. Malgré des réglementations strictes, le non-port ou le port incorrect des Équipements de Protection Individuelle (EPI / PPE) reste l'une des causes majeures d'accidents graves. Traditionnellement, la vérification repose sur des inspections humaines visuelles, une méthode sujette à la fatigue et impossible à assurer en continu.
 
-Le projet **PPE Detection & Mining Safety** répond à ce défi en proposant une solution de rupture combinant l'**Intelligence Artificielle embarquée (Edge AI)** et l'**Internet des Objets (IoT)**. Ce système transforme une simple caméra de surveillance en un agent de sécurité autonome, capable de détecter en temps réel les infractions au port des équipements et d'alerter instantanément les superviseurs sur un tableau de bord dédié.
+Le projet **Mining Safety** répond à ce défi en proposant une solution de rupture combinant l'**Intelligence Artificielle embarquée (Edge AI)** et l'**Internet des Objets (IoT)**. Ce système transforme une simple caméra de surveillance en un agent de sécurité autonome, capable de détecter en temps réel les infractions au port des équipements et d'alerter instantanément les superviseurs sur un tableau de bord dédié.
 
 ---
 
@@ -14,7 +14,7 @@ Le développement de ce système s'appuie sur quatre piliers fondamentaux :
 * **La préservation des vies humaines :** L'objectif ultime est d'atteindre le "zéro accident" en détectant un oubli de casque ou de gilet *avant* qu'un ouvrier ne pénètre dans une zone à risque.
 * **Gestion des contraintes réseau (Edge AI) :** Envoyer des flux vidéo en continu vers un cloud sature la bande passante de la mine. Faire l'inférence IA directement sur le Raspberry Pi permet de ne faire circuler que quelques octets de texte (alertes JSON), rendant le système ultra-léger et résilient.
 * **Liaison locale haute performance :** Contrairement aux systèmes dépendants de la 4G, l'infrastructure repose ici entièrement sur un réseau local câblé ou sans fil (**Wi-Fi / RJ45**), assurant une latence minimale et une indépendance vis-à-vis d'Internet.
-* **Capitalisation des compétences :** Ce projet valide un modèle architectural standardisé (Capture ➔ Inférence Locale ➔ Transport MQTT ➔ Dashboard Streamlit) directement calqué sur des architectures IoT de pointe, facilitant sa transposition à d'autres problématiques complexes (ex: détection de ravageurs agricoles).
+* **Capitalisation des compétences :** Ce projet valide un modèle architectural standardisé (Capture ➔ Inférence Locale ➔ Transport MQTT ➔ Dashboard Streamlit) directement calqué sur des architectures IoT de pointe, facilitant sa transposition à d'autres problématiques complexes (ex: surveillance de maison).
 
 ---
 
