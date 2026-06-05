@@ -1,27 +1,30 @@
-# ppe-detection-mining-safety
-<img width="3999" height="3391" alt="image" src="https://github.com/user-attachments/assets/23393f0c-6360-45ed-bf8b-d20b67a77557" />
+# 👷‍♂️ PPE Detection & Mining Safety — IoT System
 
-# Mining Safety — IoT System
+![Python](https://img.shields.io/badge/Python-3670A0?style=flat-square&logo=python&logoColor=ffdd54) ![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-C51A4A?style=flat-square&logo=Raspberry-Pi&logoColor=white) ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white) ![YOLOv10](https://img.shields.io/badge/YOLOv10-Ultralytics-007ACC?style=flat-square) ![MQTT](https://img.shields.io/badge/MQTT-Mosquitto-3C525F?style=flat-square&logo=eclipse-mosquitto&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=white)
 
-Ce projet est un système de surveillance intelligent basé sur l'**IoT** et l'**Edge AI** conçu pour sécuriser les environnements miniers. Il détecte en temps réel si le personnel porte correctement ses Équipements de Protection Individuelle (EPI : casque, gilet) et transmet instantanément des métadonnées d'alerte via le protocole MQTT vers un tableau de bord centralisé.
+## 📝 Introduction
+Les industries minières et les chantiers d'extraction figurent parmi les environnements de travail les plus exigeants et dangereux au monde. Malgré des réglementations strictes, le non-port ou le port incorrect des Équipements de Protection Individuelle (EPI / PPE) reste l'une des causes majeures d'accidents graves. Traditionnellement, la vérification repose sur des inspections humaines visuelles, une méthode sujette à la fatigue et impossible à assurer en continu.
 
----
-
-##  Stack Technologique & Logos
-
-| Composant | Technologies Utilisées |
-| :--- | :--- |
-| **Langage Principal** | ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) |
-| **Matériel / Edge** | ![Raspberry Pi](https://img.shields.io/badge/-Raspberry%20Pi-C51A4A?style=for-the-badge&logo=Raspberry-Pi&logoColor=white) |
-| **Vision par Ordinateur** | ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white) ![YOLOv10](https://img.shields.io/badge/YOLOv10-Ultralytics-007ACC?style=for-the-badge) |
-| **Protocole IoT** | ![MQTT](https://img.shields.io/badge/MQTT-Mosquitto-3C525F?style=for-the-badge&logo=eclipse-mosquitto&logoColor=white) |
-| **Visualisation / UI** | ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white) |
+Le projet **PPE Detection & Mining Safety** répond à ce défi en proposant une solution de rupture combinant l'**Intelligence Artificielle embarquée (Edge AI)** et l'**Internet des Objets (IoT)**. Ce système transforme une simple caméra de surveillance en un agent de sécurité autonome, capable de détecter en temps réel les infractions au port des équipements et d'alerter instantanément les superviseurs sur un tableau de bord dédié.
 
 ---
 
-## Architecture & Concept Système
+## ❓ Pourquoi ce projet ? (Motivations & Enjeux)
+Le développement de ce système s'appuie sur quatre piliers fondamentaux :
+* **La préservation des vies humaines :** L'objectif ultime est d'atteindre le "zéro accident" en détectant un oubli de casque ou de gilet *avant* qu'un ouvrier ne pénètre dans une zone à risque.
+* **Gestion des contraintes réseau (Edge AI) :** Envoyer des flux vidéo en continu vers un cloud sature la bande passante de la mine. Faire l'inférence IA directement sur le Raspberry Pi permet de ne faire circuler que quelques octets de texte (alertes JSON), rendant le système ultra-léger et résilient.
+* **Liaison locale haute performance :** Contrairement aux systèmes dépendants de la 4G, l'infrastructure repose ici entièrement sur un réseau local câblé ou sans fil (**Wi-Fi / RJ45**), assurant une latence minimale et une indépendance vis-à-vis d'Internet.
+* **Capitalisation des compétences :** Ce projet valide un modèle architectural standardisé (Capture ➔ Inférence Locale ➔ Transport MQTT ➔ Dashboard Streamlit) directement calqué sur des architectures IoT de pointe, facilitant sa transposition à d'autres problématiques complexes (ex: détection de ravageurs agricoles).
 
-Le projet adopte une architecture découplée orientée **Edge Computing**. Contrairement aux systèmes classiques qui saturent la bande passante en envoyant des flux vidéo bruts, l'intelligence est déportée localement sur le capteur (le Raspberry Pi).
+---
+
+## 🖼️ Architecture Générale
+
+<img width="100%" alt="Architecture Générale du Système IoT" src="https://github.com/user-attachments/assets/23393f0c-6360-45ed-bf8b-d20b67a77557" />
+
+---
+
+## 🏗️ Concept Système & Flux de Données
 
 ```text
   [ 🎥 Caméra Pi ] 
@@ -32,8 +35,8 @@ Le projet adopte une architecture découplée orientée **Edge Computing**. Cont
          ▼  
   [ 🛰️ Payload JSON ] ───► Métadonnées (Ex: "1 Ouvrier sans casque")
          │
-         ▼  (Protocole MQTT — Broker)
-  [ 🌐 Internet / 4G ] 
+         ▼  (Protocole MQTT — Liaison locale LAN)
+  [ 📶 Wi-Fi / RJ45 ] 
          │
          ▼  (Abonnement / Subscribe)
   [ 📊 Dashboard Streamlit ] ───► Alertes visuelles & Statistiques en temps réel
