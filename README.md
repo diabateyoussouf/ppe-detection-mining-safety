@@ -30,7 +30,7 @@ Le développement de ce système s'appuie sur quatre piliers fondamentaux :
   [ 🎥 Caméra Pi ] 
          │  (Flux vidéo local)
          ▼
-  [ 🧠 Raspberry Pi ] ───► Prétraitement (CLAHE / Contraste Mine)
+  [ 🧠 Raspberry Pi / Smart Phone ] ───► Prétraitement (CLAHE / Contraste Mine)
          │               ───► Inférence IA (YOLOv10n local)
          ▼  
   [ 🛰️ Payload JSON ] ───► Métadonnées (Ex: "1 Ouvrier sans casque")
@@ -40,3 +40,32 @@ Le développement de ce système s'appuie sur quatre piliers fondamentaux :
          │
          ▼  (Abonnement / Subscribe)
   [ 📊 Dashboard Streamlit ] ───► Alertes visuelles & Statistiques en temps réel
+```
+## Objectifs Spécifiques de Réalisation
+Acquisition & Prétraitement : Capture vidéo optimisée pour les variations de luminosité et la poussière des galeries minières via OpenCV (filtres adaptatifs type CLAHE).
+
+Développement IA (Edge AI) : Inférence locale rapide à l'aide d'un modèle YOLO26s optimisé pour l'architecture matérielle comme Raspberry Pi.
+
+Intégration IoT : Pipeline de communication asynchrone ultra-léger via un broker MQTT fonctionnant sur le réseau local (Wi-Fi / RJ45).
+
+Analyse & Visualisation : Interface web interactive sous Streamlit pour le suivi des indicateurs clés (KPI) de sécurité et la gestion des alertes.
+
+## Structure du Projet:
+```text
+ppe-detection-mining-safety/
+├── edge_device/               # Scripts exécutés sur le Raspberry Pi (Terrain)
+│   ├── weights/               # Modèles YOLO légers exportés
+│   ├── utils/                 # Fonctions de traitement d'image (CLAHE...)
+│   ├── edge_inference.py      # Script principal (Vision + IA locale)
+│   └── mqtt_publisher.py      # Module d'envoi des messages MQTT
+│
+├── dashboard_app/             # Application Serveur / Dashboard (Superviseur)
+│   ├── app.py                 # Interface utilisateur Streamlit (inclut le subscriber)
+│
+└── requirements.txt           # Dépendances du projet
+```
+## Conclusion
+En associant la vélocité du modèle de vision par ordinateur YOLOv10 à la légèreté du protocole de messagerie MQTT, ce projet démontre la viabilité des architectures distribuées appliquées à la sécurité industrielle. Le prototype développé prouve qu'avec du matériel accessible et une pile logicielle optimisée (Python, Streamlit), il est possible de concevoir un système de surveillance performant, non intrusif pour la bande passante, et hautement réactif.
+
+Plus qu'une simple application de détection d'objets, ce projet pose les bases d'une infrastructure IoT pour l'Industrie 4.0. Les perspectives d'évolution sont vastes, notamment l'intégration de la reconnaissance faciale pour identifier l'employé en infraction ou l'automatisation des barrières d'accès si les EPI ne sont pas détectés.
+
