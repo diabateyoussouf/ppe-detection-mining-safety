@@ -1,4 +1,4 @@
-# 👷‍♂️ PPE Detection & Mining Safety — IoT System
+# Mining Safety — IoT System
 
 ![Python](https://img.shields.io/badge/Python-3670A0?style=flat-square&logo=python&logoColor=ffdd54) ![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-C51A4A?style=flat-square&logo=Raspberry-Pi&logoColor=white) ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white) ![YOLOv10](https://img.shields.io/badge/YOLOv10-Ultralytics-007ACC?style=flat-square) ![MQTT](https://img.shields.io/badge/MQTT-Mosquitto-3C525F?style=flat-square&logo=eclipse-mosquitto&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=white)
 
