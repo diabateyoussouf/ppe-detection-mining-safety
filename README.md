@@ -44,7 +44,7 @@ Le développement de ce système s'appuie sur quatre piliers fondamentaux :
 ## Objectifs Spécifiques de Réalisation
 Acquisition & Prétraitement : Capture vidéo optimisée pour les variations de luminosité et la poussière des galeries minières via OpenCV (filtres adaptatifs type CLAHE).
 
-Développement IA (Edge AI) : Inférence locale rapide à l'aide d'un modèle YOLO26s optimisé pour l'architecture matérielle comme Raspberry Pi.
+Développement IA (Edge AI) : Inférence locale rapide à l'aide d'un modèle YOLO26s optimisé pour l'architecture matérielle nvidia.
 
 Intégration IoT : Pipeline de communication asynchrone ultra-léger via un broker MQTT fonctionnant sur le réseau local (Wi-Fi / RJ45).
 
@@ -53,7 +53,7 @@ Analyse & Visualisation : Interface web interactive sous Streamlit pour le suivi
 ## Structure du Projet:
 ```text
 ppe-detection-mining-safety/
-├── edge_device/               # Scripts exécutés sur le Raspberry Pi (Terrain)
+├── edge_device/               # Scripts exécutés sur le materiel nvidia (Terrain)
 │   ├── weights/               # Modèles YOLO légers exportés
 │   ├── utils/                 # Fonctions de traitement d'image (CLAHE...)
 │   ├── edge_inference.py      # Script principal (Vision + IA locale)
@@ -65,7 +65,7 @@ ppe-detection-mining-safety/
 └── requirements.txt           # Dépendances du projet
 ```
 ## Conclusion
-En associant la vélocité du modèle de vision par ordinateur YOLOv10 à la légèreté du protocole de messagerie MQTT, ce projet démontre la viabilité des architectures distribuées appliquées à la sécurité industrielle. Le prototype développé prouve qu'avec du matériel accessible et une pile logicielle optimisée (Python, Streamlit), il est possible de concevoir un système de surveillance performant, non intrusif pour la bande passante, et hautement réactif.
+En associant la vélocité du modèle de vision par ordinateur YOLO26s à la légèreté du protocole de messagerie MQTT, ce projet démontre la viabilité des architectures distribuées appliquées à la sécurité industrielle. Le prototype développé prouve qu'avec du matériel accessible et une pile logicielle optimisée (Python, Streamlit), il est possible de concevoir un système de surveillance performant, non intrusif pour la bande passante, et hautement réactif.
 
 Plus qu'une simple application de détection d'objets, ce projet pose les bases d'une infrastructure IoT pour l'Industrie 4.0. Les perspectives d'évolution sont vastes, notamment l'intégration de la reconnaissance faciale pour identifier l'employé en infraction ou l'automatisation des barrières d'accès si les EPI ne sont pas détectés.
 
