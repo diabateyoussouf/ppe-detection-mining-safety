@@ -20,7 +20,7 @@ Le développement de ce système s'appuie sur quatre piliers fondamentaux :
 
 ## 🖼️ Architecture Générale
 
-<img width="100%" alt="Architecture Générale du Système IoT" src="https://github.com/user-attachments/assets/23393f0c-6360-45ed-bf8b-d20b67a77557" />
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/cc9e741a-2e69-4325-a216-77674f842185" />
 
 ---
 
